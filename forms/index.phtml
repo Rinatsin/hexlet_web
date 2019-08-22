@@ -1,0 +1,27 @@
+<a href="/users">Все Пользователи</a>
+
+<!-- BEGIN (write your solution here) -->
+<form action="/users" method="get">
+    <input type="search" required name="term" value="<?= htmlspecialchars($term) ?>" />
+    <input type="submit" value="search" />
+</form>
+<table>
+<?php foreach ($users as $user): ?>
+<tr>
+    <td>
+        <?=$user['id'] ?>
+    </td>
+    <td>
+        <?=$user['firstName'] ?>
+    </td>
+    <td>
+        <?=$user['lastName'] ?>
+    </td>
+    <td>
+        <?=$user['email'] ?>
+    </td>
+</tr>
+<?php endforeach ?>
+</table>
+
+<!-- END -->
