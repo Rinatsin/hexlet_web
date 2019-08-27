@@ -1,0 +1,21 @@
+<!-- BEGIN (write your solution here) -->
+<h1>Список публикаций</h1>
+<table>
+    <?php foreach ($posts as $post): ?>
+    <tr>
+        <td>
+            <a href="/posts/<?= $post['slug'] ?>"><?= htmlspecialchars($post['name']) ?></a>
+        </td>
+    </tr>
+    <?php endforeach ?>
+</table>
+<div>
+<span>
+<a href="?page=<?= $page < 2 ? 1 : $page - 1 ?>">назад</a>
+</span>
+<span>
+<a href="?page=<?= $page + 1 ?>">вперед</a>
+</span>
+</div>
+<!-- END -->
+
