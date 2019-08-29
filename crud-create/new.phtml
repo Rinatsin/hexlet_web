@@ -1,0 +1,29 @@
+<a href="/posts">Посты</a>
+
+<!-- BEGIN (write your solution here) -->
+<form action="/posts" method="post">
+<div>
+    <label>
+        Название *
+        <input type="text" name="post[name]" value="<?= htmlspecialchars($postData['name'] ?? ''); ?>">
+    </label>
+    <?php if (isset($errors['name'])): ?>
+    <div>
+        <?= $errors['name'] ?>
+    </div>
+    <?php endif ?>
+</div>
+<div>
+    <label>
+         Содержание
+        <input type="text" name="post[body]" value="<?= htmlspecialchars($postData['body'] ?? ''); ?>">
+    </label>
+    <?php if (isset($errors['body'])): ?>
+    <div>
+        <?= $errors['body'] ?>
+    </div>
+    <?php endif ?>
+</div>
+<input type="submit" value="Create">
+</form>
+<!-- END -->
