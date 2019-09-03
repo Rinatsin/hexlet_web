@@ -1,0 +1,23 @@
+<?php if (count($flash) > 0): ?>
+  <ul>
+  <?php foreach ($flash as $messages): ?>
+      <?php foreach ($messages as $message): ?>
+          <li><?= $message ?></li>
+      <?php endforeach ?>
+  <?php endforeach ?>
+  </ul>
+<?php endif ?>
+
+<a href="/posts/new">Новый пост</a>
+
+<?php foreach ($posts as $post): ?>
+  <div>
+      <a href="/posts"><?= htmlspecialchars($post['name']) ?></a>
+    <form action="/posts/<?= $post['id'] ?>" method="post">
+        <input type="hidden" name="_METHOD" value="DELETE">
+        <input type="submit" value="Remove">
+    </form>
+  </div>
+<?php endforeach ?>
+
+
