@@ -1,0 +1,45 @@
+<?php if (count($flash) > 0): ?>
+  <ul>
+  <?php foreach ($flash as $messages): ?>
+      <?php foreach ($messages as $message): ?>
+          <li><?= $message ?></li>
+<?php endforeach ?>
+  <?php endforeach ?>
+  </ul>
+<?php endif ?>
+
+<!-- BEGIN (write your solution here) -->
+<?php if (!isset($_SESSION['user'])) :?>
+<h2>
+Войти в систему
+</h2>
+<form action="/session" method="post">
+    <div>
+        <label>
+        Имя: 
+        <input type="text" name="user[name]" >
+        </label>
+    </div>
+    <div>
+        <label>
+        Пароль: 
+        <input type="password" name="user[password]" >
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Sign In" >
+    </div>
+</form>
+<?php else : ?>
+<form action="/session" method="post">
+        <input type="hidden" name="_METHOD" value="DELETE">
+    <div>
+        Hi <?= htmlspecialchars($_SESSION['user']['name']) ?>!
+    </div>
+    <div>
+        <input type="submit" value="Sign Out">
+    </div>
+</form>
+<?php endif ?>
+<!-- END -->
+
